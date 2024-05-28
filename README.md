@@ -21,4 +21,5 @@
 - Rufino López María Elena
 
 ### Nota
-Se esta usando la [página de IBM](https://www.ibm.com/docs/es/aix/7.1?topic=adapters-ascii-decimal-hexadecimal-octal-binary-conversion-table) para saber la forma decimal y hexadecimal de las letras y símbolos.  
+- Se esta usando la [página de IBM](https://www.ibm.com/docs/es/aix/7.1?topic=adapters-ascii-decimal-hexadecimal-octal-binary-conversion-table) para saber la forma decimal y hexadecimal de las letras y símbolos.
+- Se esta usando la [página de MasterPLC](https://masterplc.com/calculadora/decimal-a-hexadecimal/) para convertir números en forma decimal a forma hexadecimal.
