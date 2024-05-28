@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Simulador Z80 EyPC</title>
+        <meta charset=utf-8>
+        <link rel="icon" href="src/Icon.png">
+        <meta http-equiv=X-UA-Compatible content="IE=Edge,chrome=1">
+        <script src="public/buttons.js" data-pace-options='{ "ajax": false, "restartOnRequestAfter":false }'></script>
+        <link href="src/style3.css" rel=stylesheet>
+        <link rel=stylesheet href="src/style2.css">
+        <link rel=stylesheet href="src/style.css">
+        <script src=https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js></script>
+        <script src=https://www.gstatic.com/firebasejs/7.14.4/firebase-auth.js></script>
+        <script src=https://www.gstatic.com/firebasejs/7.14.4/firebase-storage.js></script>
+        <script src=https://www.gstatic.com/firebasejs/7.14.4/firebase-database.js></script>
+        <script>
+            var config = {
+                apiKey: "AIzaSyDcvp5T0FSOcTppB1CRQZf3YzkHNroKA58",
+                authDomain: "asm80-964e5.firebaseapp.com",
+                databaseURL: "https://asm80-964e5.firebaseio.com",
+                projectId: "asm80-964e5",
+                storageBucket: "asm80-964e5.appspot.com",
+                messagingSenderId: "293802021013"
+            };
+            firebase.initializeApp(config)
+        </script>
+        <script src=https://code.jquery.com/jquery-1.9.1.js></script>
+        <script src=https://code.jquery.com/ui/1.10.3/jquery-ui.js></script>
+        <script>
+            JSERSendpoint = "https://asm80.com"
+        </script>
+        <script src="public/process2.js"></script>
+    </head>
+    <body>
+        <input type="checkbox" id="close">
+        <label for="close" id="btn-cerrar"><center>X</center></label>
+        <div class="nod">
+            <div class="content">
+                <h2 class="infoTextNodTitle">Bienvenido al simulador Z80</h2>
+                <h3></h3>
+                <h4 class="infoTextNodContent">En caso de ser la primera vez usando este simulador es recomendable leer el manual de usuario el cual podrás 
+                    encontrar presionando el botón llamado “Manual de usuario”. </h4>
+                    <h3></h3>
+                <h4 class="infoTextNodContent">Si deseas ver el código, manual técnico, etc., los podrás encontrar presionando el botón llamado “GitHub”.</h4>
+                <h3></h3>
+                <h4 class="infoTextNodContent">Presiona la X que se encuentra en la parte superior derecha para cerrar esta ventana flotante.</h4>
+            </div>
+        </div>
+        
+        <h2 class="infoTextTitle"><pre>                                             Código</pre></h2>
+        <aside>
+            <div id=emulator style="display: none;"></div>
+        </aside>
+        <menu>
+            <h2 class="infoText"><center>Menú</center></h2>
+            <span class=lebox>
+                Archivo: <span id=fn></span>
+            </span>
+            <br>
+            <button onclick=newFile() id=bNew>Iniciar</button>
+            <br>
+            <button onclick=goEmu() id=bEmu>
+                Ensamblar y ejecutar
+            </button>
+            <br>
+            <a href="src/hyl.html" target="_blank">
+                <button>Archivo HEX y LST</button>
+            </a>
+            <br>
+            <hr>
+            <h2 class="infoText"><center>Extra</center></h2>
+            <a href="https://www.ibm.com/docs/es/aix/7.1?topic=adapters-ascii-decimal-hexadecimal-octal-binary-conversion-table" target="_blank">
+                <button>Tabla de conversiones</button>
+            </a>
+            <br>
+            <a href="https://masterplc.com/calculadora/decimal-a-hexadecimal/" target="_blank">
+                <button>Decimal a Hexadecimal</button>
+            </a>
+            <br>
+            <a href="" target="_blank">
+                <button>Manual de usuario</button>
+            </a>
+            <br>
+            <a href="https://github.com/JosueMM6?tab=repositories" target="_blank">
+                <button>GitHub</button>
+            </a>
+            
+        </menu>
+        <article>
+            <div id=tabs>
+                <section id=madd-a80>
+                    <div id=code1 name=code1></div>
+                </section>
+            </div>
+        </article>
+        <div id=newform>
+            <form>
+                <fieldset>
+                    <label for=nfname>Nombre del archivo</label>
+                    <input type=text name=nfname id=nfname class="text ui-widget-content ui-corner-all">
+                    <select name=nftype id=nftype class="text ui-widget-content ui-corner-all">
+                        <option value=z80>.z80</option>
+                    </select>
+                </fieldset>
+            </form>
+        </div>
+        
+        <style>
+            #campaign-popup {
+                position: relative;
+                position: fixed;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                background: rgba(0,0,0,.8);
+            }
+
+            #campaign-popup .popup {
+                font-family: 'Roboto', sans-serif;
+                width: 1280px;
+                height: 720px;
+                background: #1abcb9;
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                margin: auto;
+                text-align: center;
+                background-image: url(img/campaign/3.png);
+            }
+
+            #campaign-popup .popup .inner {
+                color: black;
+                background: rgba(255,255,255,.8);
+                margin: 2em;
+                padding: 2em;
+            }
+
+            #campaign-popup .popup h1 {
+                font-size: 45px;
+                font-weight: bold;
+            }
+
+            #campaign-popup .popup p {
+                font-size: 26px;
+                line-height: 35px;
+            }
+
+            #campaign-popup .popup button {
+                font-size: 40px;
+                padding: 0.5em;
+                border: 3px solid orangered;
+                background: rgb(255, 255, 255);
+                border-radius: 14px;
+                cursor: pointer;
+                box-shadow: 0 0 0 0 rgb(255, 255, 255);
+                -webkit-animation: pulse 1.5s infinite;
+                animation: pulse 1.5s infinite;
+            }
+
+            #campaign-popup .popup p.notnow a {
+                font-size: 20px;
+            }
+
+            @keyframes pulse {
+                0% {
+                    -moz-transform: scale(0.9);
+                    -ms-transform: scale(0.9);
+                    -webkit-transform: scale(0.9);
+                    transform: scale(0.9);
+                }
+
+                70% {
+                    -moz-transform: scale(1);
+                    -ms-transform: scale(1);
+                    -webkit-transform: scale(1);
+                    transform: scale(1);
+                    box-shadow: 0 0 0 50px rgba(255,165,0, 0);
+                }
+
+                100% {
+                    -moz-transform: scale(0.9);
+                    -ms-transform: scale(0.9);
+                    -webkit-transform: scale(0.9);
+                    transform: scale(0.9);
+                    box-shadow: 0 0 0 0 rgba(255,165,0, 0);
+                }
+            }
+        </style>
+        <script>
+            $(function() {
+                var campaign = localStorage.getItem('campaign');
+                if (document.location.hash == "#campaign") {
+                    document.location.hash = "";
+                    campaign = null;
+                }
+                if (campaign && campaign < new Date().getTime()) {
+                    campaign = null;
+                }
+                console.log("campaign", campaign)
+                if (!campaign) {
+                    let ttl = new Date().getTime() + 1000 * 60 * 60 * 24 * 30;
+                    $('#campaign-popup').show();
+                    $('#campaign-popup button').click(function() {
+                        localStorage.setItem('campaign', ttl + 1000 * 60 * 60 * 24 * 45);
+                        //$('#campaign-popup').hide();
+                        document.location.href = "";
+                    });
+                    $('#campaign-popup p.notnow a').click(function() {
+                        localStorage.setItem('campaign', ttl);
+                        $('#campaign-popup').hide();
+                    });
+                }
+            });
+        </script>
+        <script src="public/ops2.js"></script>
+        <script>
+            UserVoice = window.UserVoice || [],
+            function() {
+                var e = document.createElement("script");
+                e.type = "text/javascript",
+                e.async = !0,
+                e.src = "//widget.uservoice.com/AtqIw8gWvKvI2Ka0adZZcA.js";
+                var r = document.getElementsByTagName("script")[0];
+                r.parentNode.insertBefore(e, r)
+            }(),
+            UserVoice.push(["set", {
+                accent_color: "#448dd6",
+                trigger_color: "white",
+                trigger_background_color: "rgba(46, 49, 51, 0.6)"
+            }]),
+            UserVoice.push(["identify", {}]),
+            UserVoice.push(["autoprompt", {}])
+        </script>
+        <script>
+            !function(e, a, n, t, c, g, o) {
+                e.GoogleAnalyticsObject = c,
+                e.ga = e.ga || function() {
+                    (e.ga.q = e.ga.q || []).push(arguments)
+                }
+                ,
+                e.ga.l = 1 * new Date,
+                g = a.createElement(n),
+                o = a.getElementsByTagName(n)[0],
+                g.async = 1,
+                g.src = "//www.google-analytics.com/analytics.js",
+                o.parentNode.insertBefore(g, o)
+            }(window, document, "script", 0, "ga"),
+            ga("create", "UA-190512-39", "asm80.com"),
+            ga("send", "pageview")
+        </script>
+    </body>
+</html>

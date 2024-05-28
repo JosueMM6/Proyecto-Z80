@@ -1,0 +1,643 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap');
+
+* {
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+@font-face {
+  font-family: 'IBM Plex Mono', monospace;
+  src: url('5x7-dot-matrix-webfont.eot');
+  src: url('5x7-dot-matrix-webfont.eot?#iefix') format('embedded-opentype'),url('5x7-dot-matrix-webfont.woff') format('woff'),url('5x7-dot-matrix-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal
+}
+
+#tdisplay {
+  font-family: "5x7_dot_matrixregular",courier,monospace;
+  font-size: 16px;
+  white-space: pre;
+  width: 960px;
+  padding: 4px;
+  background-color: white;
+  color: black
+}
+
+#tdisplay div span.cursor {
+  color: white;
+  background-color: black
+}
+
+#tdisplay.green {
+  background-color: black;
+  color: green
+}
+
+#tdisplay.green div span.cursor {
+  color: black;
+  background-color: green
+}
+
+#termstatus {
+  width: 960px;
+  text-align: right
+}
+
+#termstatus span {
+  float: right;
+  border: 1px solid black;
+  background-color: #00c;
+  color: #777;
+  margin: 0 10px;
+  padding: 0 10px;
+  cursor: pointer
+}
+
+@import url(https://fonts.googleapis.com/css?family=Open + Sans&subset=latin, latin-ext);
+
+body,html {
+  font-size: 13px;
+  background-color: #000;
+  color: rgb(255, 255, 255)
+}
+
+body.localfs .ui-state-active,body.localfs .ui-widget-content .ui-state-active,body.localfs .ui-widget-header .ui-state-active {
+  border: 1px solid #5c5c5c;
+  background: #5c5c5c url(dark/images/ui-bg_inset-soft_local_30_f58400_1x100.png) 50% 50% repeat-x;
+  font-weight: bold;
+  color: #000
+}
+
+.experimental {
+  font-style: italic
+}
+
+#editor,#code1 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  font-family: monospace
+}
+
+.break {
+  background-color: #800
+}
+
+footer,aside,menu {
+  font-family: "Open Sans",sans-serif
+}
+
+div#tabs .CodeMirror {
+  font-family: courier,monospace
+}
+
+.breakpoints {
+  width: 1.1em
+}
+
+
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 27px;
+  text-align: right;
+  background-color: #005;
+  color: white
+}
+
+footer a {
+  color: white;
+  text-decoration: none
+}
+
+aside {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 220px;
+  bottom: 30px
+}
+
+article {
+  position: absolute;
+  top: 52px;
+  left: 220px;
+  bottom: 30px;
+  width: 400px;
+  border-right: 2px solid rgb(0, 0, 0);
+}
+
+menu {
+  position: absolute;
+  top: 50px;
+  left: 923px;
+  padding: 0;
+  margin: 0;
+  width: 200px
+}
+
+footer div.left {
+  float: left
+}
+
+footer div.left span.ui-icon {
+  display: inline-block;
+  font-size: 1.2rem
+}
+
+button[data-set].active {
+  background-color: #040;
+  color: #fff
+}
+
+body.wide article {
+  width: 50%;
+  resize: none;
+}
+
+body.wide menu {
+  left: inherit;
+  right: 200px;
+}
+
+menu button,menu .lebox {
+  width: 100%
+}
+
+body.light,body.light menu,body.light aside #emulator {
+  background-color: #ebebeb;
+  color: #000
+}
+
+body.light .ui-state-default {
+  background: #a8a8a8;
+  color: #000
+}
+
+body.light .ui-widget-content {
+  background: #ebebeb;
+  color: #000
+}
+
+body.light .ui-widget-content a {
+  background: #ebebeb;
+  color: #000
+}
+
+body.light li.context-menu-item {
+  background: #ebebeb;
+  color: #000
+}
+
+body.light li.context-menu-item:hover {
+  background: #a8a8a8;
+  color: #000
+}
+
+#filesystem li a.active {
+  background-color: #ddd;
+  color: #000
+}
+
+#filesystem li a.changed:after {
+  content: " \2021";
+  background-color: red
+}
+
+.lebox .ui-button-text {
+  color: black
+}
+
+.lebox {
+  border: 0;
+  opacity: 1
+}
+
+.abot {
+  position: relative;
+  bottom: 0
+}
+
+#filesystem {
+  list-style-type: none;
+  padding: 0
+}
+
+#filesystem li {
+  margin: 0
+}
+
+aside #accordion .ui-accordion-content {
+  padding-left: 10px
+}
+
+aside #accordion .ui-accordion-content a {
+  text-decoration: none
+}
+
+aside #emulator {
+  margin: 0 5px;
+  font-family: courier,monospace
+}
+
+aside #emulator button {
+  height: 27px
+}
+
+aside #emulator #memdump {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  font-size: 12px
+}
+
+aside #emulator input {
+  border: 0
+}
+
+aside #emulator button {
+  border: 1px solid #ddd
+}
+
+aside #emulator #memdump input {
+  width: 100px
+}
+
+aside #emulator #dbgpanel2 input {
+  width: 100px
+}
+
+aside #emulator .emreg input {
+  width: 50px;
+  height: 17px
+}
+
+#anispeed {
+  width: 52px;
+  display: inline-block;
+  text-align: right
+}
+
+#binclude {
+  font-family: Helvetica,Arial,sans-serif;
+  border: 3px dashed black;
+  padding: 5px;
+  font-size: 15px;
+  text-align: center
+}
+
+#binclude:hover {
+  border: 3px dashed blue;
+  background: #ddd;
+  color: #000
+}
+
+table.sevenseg {
+  background-color: #000;
+  vertical-align: top;
+  display: inline-block;
+  margin: 0;
+  padding: 0
+}
+
+td.on {
+  background-color: red;
+  text-align: center;
+  vertical-align: top
+}
+
+td.off {
+  background-color: #400;
+  text-align: center;
+  vertical-align: top
+}
+
+td.bg {
+  background-color: #000;
+  text-align: center;
+  vertical-align: top
+}
+
+table.sevenseg tr.thin {
+  height: 5px
+}
+
+table.sevenseg tr.thick {
+  height: 10px
+}
+
+table.sevenseg td.narrow {
+  width: 2px
+}
+
+table.sevenseg td.wide {
+  width: 7px
+}
+
+div#sdisplay {
+  background-color: #000;
+  display: inline-block
+}
+
+fieldset#jsers {
+  width: 150px
+}
+
+fieldset#jsers input#jsersname,fieldset#jsers input#jserspwd {
+  display: inline-block
+}
+
+fieldset#jsers #jsersBlogin,fieldset#jsers #jsersBregister,fieldset#jsers #jsersBTregister {
+  display: block;
+  width: 100%
+}
+
+fieldset#jsers label {
+  width: 80px;
+  display: inline-block
+}
+
+#pubform p {
+  font-size: 75%
+}
+
+#pubform textarea {
+  width: 100%;
+  height: 80px
+}
+
+#remoteworkspaces li a {
+  cursor: pointer
+}
+
+
+
+
+#xterm {
+  display: none;
+  position: absolute;
+  background-color: rgba(0,30,0,0.95);
+  top: 50px;
+  right: 5px;
+  width: 70px;
+  padding: 0;
+  margin: 0;
+  bottom: 30px;
+  z-index: 20;
+  text-align: right
+}
+
+#xterm #tdisplay.green {
+  background-color: rgba(0,20,0,0.95)
+}
+
+.infoTextNodTitle {
+  color: rgb(0, 0, 0);
+  text-align: center;
+  margin: 0.25rem;
+}
+
+.infoTextNodContent {
+  color: rgb(0, 0, 0);
+  text-align:justify;
+  margin: 0.25rem;
+}
+
+.nod{
+  width: 100%;
+  height: 100dvh;
+
+  background: rgba(0, 0, 0, 0.8);
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  animation: nod 2s 24s forwards;
+  z-index: 100;
+  
+}
+
+.content{
+  margin: auto;
+  width: 40%;
+  height: 40%;
+  background: rgb(255, 255, 255);
+  border-radius: 10px;
+}
+
+#close{
+  display: none;
+}
+
+#close + label{
+  position: fixed;
+  color: #fff;
+  font-size: 25px;
+  z-index: 101;
+  background:rgb(247, 6, 6);
+  height: 40px;
+  width: 40px;
+  line-height: 40px;
+  border-radius: 50%;
+  right: 10px;
+  cursor: pointer;
+
+  animation: nod 2s 24s forwards;
+
+}
+
+#close:checked + label, #close:checked ~ .nod{
+  z-index: 100;
+  display: none;
+
+}
+
+@keyframes nod {
+  100%{
+      visibility:hidden;
+      opacity: 1;
+  }
+}
+
+
+body{
+  background-color: black;
+}
+
+#columns {
+    display: grid;
+    height: 93vh;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1.1fr 1fr 0.3fr 1fr;
+    grid-gap: 0.25rem;
+    grid-template-areas:
+        "editor memory"
+        "editor memory"
+        "regs runtab"
+        "regs specialregs"
+        "author specialregs";
+}
+
+@media only screen and (max-width: 980px) {
+    #columns {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #memoryListDiv {
+        height: 100% !important;
+    }
+}
+
+#editorDiv {
+    grid-area: editor;
+    display: grid;
+    grid-template-rows: 13fr 1fr;
+}
+
+#editor {
+    width: 100%;
+    resize: none;
+}
+
+#editorContainer {
+    display: flex;
+}
+
+#compileBar {
+    border: 1px solid rgb(255, 255, 255);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#compilerErrorText {
+    color: orangered;
+    margin: 0;
+}
+
+.infoText {
+    color: white;
+    text-align: center;
+    margin: 0.25rem;
+}
+
+.border {
+    color: white;
+    text-align: center;
+    margin: 0.25rem;
+    border: 1px solid rgb(255, 255, 255);
+}
+
+.customBtn {
+    border-radius: 0;
+    border: 1px solid black;
+    background-color: whitesmoke;
+    margin: 0;
+}
+
+.customBtn:hover {
+    background-color: lightgray;
+    cursor: pointer;
+}
+
+#memoryDivContainer {
+    grid-area: memory;
+}
+
+#memoryHeader {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(255, 255, 255);
+}
+
+#memoryListDiv {
+    min-height: 0;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+}
+
+#regsDivContainer {
+    grid-area: regs;
+}
+
+#specialRegsDivContainer {
+    grid-area: specialregs;
+}
+
+#runProgramDiv {
+    grid-area: runtab;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#runProgramLeftBtns {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+.memoryAddress {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(255, 255, 255);
+}
+
+.memoryAddress > p {
+    margin: 0.2rem 0;
+}
+
+.memAdresssMatchedInstruction {
+    color: rgb(255, 255, 255);
+    font-size: 80%;
+}
+
+.memAtPC {
+    background-color: rgb(35, 213, 219);
+}
+
+#regsDiv {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.regDiv { 
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid rgb(255, 255, 255);
+    margin: 0.25rem;
+}
+
+.regDiv > p {
+    margin: 0.1rem 0;
+}
+
+.byteInput {
+    background-color: #FBFBFB;
+    border: 1px solid black;
+    border-radius: 0.1rem;
+}
+
+.byteInput:focus {
+    background-color: rgb(5, 73, 199);
+}
+
+.infoTextTitle {
+  color: white;
+  margin: 0.25rem;
+}
+
+.infoTextA {
+  color: rgb(255, 255, 255);
+  text-align:center;
+  margin: 0.35rem;
+}
